@@ -11,7 +11,7 @@ import java.io.File;
 public class DemoApplication extends JFrame {
 
 	public static void main(String[] args) {
-		new File(UploadController.uploadDirectory).mkdir();
+		//new File(UploadController.uploadDirectory).mkdir();
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
