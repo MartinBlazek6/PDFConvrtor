@@ -16,8 +16,9 @@ function showFileName() {
   <div class="container">
     <div class="row">
       <div class="col-md-8 mx-auto">
-        <h2>Upload File Example</h2>
-        <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
+        <h2>Upload Files to be converted</h2>
+        <p th:text="${message}" th:if="${message ne null}" class="alert alert-success"></p>
+        <p th:text="${messageAlert}" th:if="${messageAlert ne null}" class="alert alert-danger"></p>
         <form method="post" th:action="@{/upload}" enctype="multipart/form-data">
           <div class="form-group">
             <input type="file" name="files" multiple class="form-control-file">

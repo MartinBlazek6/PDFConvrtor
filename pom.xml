@@ -22,6 +22,7 @@
 			<artifactId>spire.pdf.free</artifactId>
 			<version>5.1.0</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -65,5 +66,12 @@
 			</plugin>
 		</plugins>
 	</build>
+	<repositories>
+		<repository>
+			<id>clojars</id>
+			<name>Clojars</name>
+			<url>https://repo.clojars.org/</url>
+		</repository>
+	</repositories>
 
 </project>

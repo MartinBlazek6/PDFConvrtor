@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -27,12 +29,12 @@ public class UploadController {
     public String uploadFile(@RequestParam("files") MultipartFile[] files, RedirectAttributes attributes) throws IOException {
 
         if (files[0].isEmpty()) {
-            attributes.addFlashAttribute("message", "Please select a file to upload.");
+            attributes.addFlashAttribute("messageAlert", "Please select a file to upload.");
             return "redirect:/";
         }
             Arrays.stream(files).forEach(converterService::convertFileToPDF);
-        attributes.addFlashAttribute("message", "You successfully converted all files into: " + uploadDirectory);
-        Runtime.getRuntime().exec("explorer.exe /select," + uploadDirectory);
+        attributes.addFlashAttribute("message", "You successfully converted all files");
+        Desktop.getDesktop().open(new File(uploadDirectory));
 
         return "redirect:/";
     }
