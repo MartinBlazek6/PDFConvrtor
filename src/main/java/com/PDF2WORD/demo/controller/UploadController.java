@@ -32,9 +32,16 @@ public class UploadController {
             attributes.addFlashAttribute("messageAlert", "Please select a file to upload.");
             return "redirect:/";
         }
+        try {
             Arrays.stream(files).forEach(converterService::convertFileToPDF);
-        attributes.addFlashAttribute("message", "You successfully converted all files");
-        Desktop.getDesktop().open(new File(uploadDirectory));
+            attributes.addFlashAttribute("message", "You successfully converted all files");
+            Desktop.getDesktop().open(new File(uploadDirectory));
+        }catch (Exception e){
+            Arrays.stream(files).forEach(converterService::convertFileToPDF);
+            attributes.addFlashAttribute("message", "You successfully converted all files");
+            Desktop.getDesktop().open(new File(uploadDirectory));
+        }
+
 
         return "redirect:/";
     }

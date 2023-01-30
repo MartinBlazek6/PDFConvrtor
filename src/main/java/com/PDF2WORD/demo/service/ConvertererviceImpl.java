@@ -21,8 +21,8 @@ public class ConvertererviceImpl implements ConverterService{
             pw.loadFromBytes(file.getBytes());
             pw.saveToFile(String.valueOf(fileNameAndPath).replace("pdf","docx"), FileFormat.DOCX);
             pw.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException ignored) {
+
         }
 
     }
